@@ -33,9 +33,11 @@ async function mapBirthdayData(year) {
         return new Date(b.birthday) - new Date(a.birthday);
     });
     const mappedData = birthdayData.map(person => {
+        const { name, birthday } = person;
         return {
-            initials: nameToInitials(person.name),
-            day: computeDay(person.birthday, year)
+            ...person,
+            initials: nameToInitials(name),
+            day: computeDay(birthday, year)
         }
     });
     //calculate html based on mapped data
@@ -53,9 +55,9 @@ function nameToInitials(fullName) {
 }
 
 function computeDay(birthdate, year) {
-    const values = birthdate.split('/');
+    const [month, date] = birthdate.split('/');
     //year should always come from input, not birthdate
-    const day = new Date(`${values[0]}-${values[1]}-${year}`).getDay();
+    const day = new Date(`${month}-${date}-${year}`).getDay();
     //consider monday to be the first day of the week
     return day === 0 ? 6 : day - 1;
 }
@@ -69,8 +71,8 @@ function collateHTML(mappedData) {
         if(cardsForDay.length === 0) {
             //show grey background for empty box
             cardsHtml = `<div class="card" style="background: lightgrey; width: 150px; line-height: 150px;">
-                                &#128528;
-                            </div>`;
+                            &#128528;
+                        </div>`;
         } else {
             //form birthday cards
             cardsHtml = mapCardsToHTML(cardsForDay);
@@ -96,6 +98,10 @@ function mapCardsToHTML(cards) {
         const randomColorCode = `hsla(${Math.random() * 360}, 70%, 50%, 1)`;
         return `<div class="card" style="background: ${randomColorCode}; width: ${width}px; height: ${width}px; line-height: ${width}px;">
                     ${card.initials}
+                    <span class="person-info" style="top: -${width/2}px;">
+                        ${card.name}</br>
+                        ${card.birthday}
+                    </span>
                 </div>`;
     }).join('');
 }
