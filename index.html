@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Birthday Cal</title>
+        <link rel="stylesheet" href="main.css" />
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            Birthday Cal
+        </header>
+        <div id="calendar-panel"></div>
+        <div class="data-panel">
+            <textarea id="birthdays" rows="25" cols="40" readonly={true}></textarea>
+            <div class="input-panel">
+                <label>Year</label>
+                <input type="number" id="input-year"></br>
+                <p id="error"></p>
+                <button onclick="updateYear()">UPDATE</button>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>

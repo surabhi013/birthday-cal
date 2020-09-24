@@ -1,0 +1,82 @@
+body {
+    font-family: sans-serif;
+    background: #ebf3f7;
+    margin: 40px;
+}
+
+header {
+    text-align: center;
+    margin: 50px;
+    font-size: xxx-large;
+}
+
+#calendar-panel {
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day-card {
+    margin: 5px;
+    width: 150px;
+    border: 1px solid #ccc;
+    background: white;
+    height: 190px;
+}
+
+.day-indicator {
+    color: whitesmoke;
+    background: mediumpurple;
+    text-align: end;
+    font-size: 15px;
+    height: 20px;
+    padding: 10px;
+}
+
+.birthday-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.data-panel {
+    display: flex;
+    align-items: flex-start;
+}
+
+#birthdays {
+    flex: 1;
+}
+
+.input-panel {
+    margin: 0px 20px 10px;
+}
+
+label {
+    display: block;
+    color: grey;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+#input-year {
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background: dodgerblue;
+    color: white;
+    block-size: 40px;
+    border-style: none;
+    border-radius: 5px;
+    width: 100px;
+}
