@@ -16,13 +16,15 @@ function updateYear() {
     let errorText = '';
     if(year === '') {
         errorText = "Input required";
-    } else if (year < 1000 || year > 9999) {
-        errorText = "Input must have 4 digits"
+    } else if(year < 0 || year > 275760) {
+        errorText = "Input out of range";
     }
     document.getElementById("error").innerHTML = errorText;
     //map data if input is valid
     if(errorText === '') {
         mapBirthdayData(year);
+    } else {
+        document.getElementById("calendar-panel").innerHTML = '';
     }
 }
 
